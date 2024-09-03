@@ -1,0 +1,13 @@
+什么是io多路复用？
+什么是c10k问题？
+io多路复用和不用多路复用的区别？
+select，poll，epoll？
+select是数组，有最大长度限制
+poll是链表
+select和poll会每次整个复制到内核。会注册回调到对应的io事件，等触发事件后，触发中断唤醒select的进程
+（每个fd的回调函数做的事情：把select进程（内核进程）加入该fd对应设备的等待队列中，当该设备可读写时，就会把select进程从等待队列中取出并唤醒。）
+epoll
+有3个系统调用：epoll_create（创建epoll句柄），epoll_ctl（增删改事件），epoll_wait（阻塞进行IO分发）
+边缘触发和水平触发
+
+前提：建立大量TCP连接的服务端，真正处于活跃状态的TCP连接的数量很少
