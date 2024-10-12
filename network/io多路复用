@@ -11,3 +11,10 @@ epoll
 边缘触发和水平触发
 
 前提：建立大量TCP连接的服务端，真正处于活跃状态的TCP连接的数量很少
+
+服务器单机理论最大能连接多少个客户端
+
+
+
+附录
+https://www.xiaolincoding.com/os/8_network_system/selete_poll_epoll.html#i-o-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8
