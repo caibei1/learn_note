@@ -1,0 +1,41 @@
+父节点n 子节点2n+1 2n+2
+子结点 n  父节点（n-1）/2
+判断注意条件为2n+1 < len。同时主要2n+2<len
+一旦条件不满足就break，无需再遍历
+
+参考代码
+func down(nums []int, k int) {
+	for 2*k+1 < len(nums) {
+		l := 2*k + 1
+		r := 2*k + 2
+
+		min := nums[l]
+		minIndex := l
+
+		if r < len(nums) && nums[r] < min {
+			min = nums[r]
+			minIndex = r
+		}
+
+		if nums[k] > min {
+			nums[k], nums[minIndex] = nums[minIndex], nums[k]
+			k = minIndex
+		} else {
+			break
+		}
+	}
+}
+
+func upMax(arr []float64) {
+	i := len(arr) - 1
+	for i > 0 {
+		f := (i - 1) / 2
+		if arr[i] > arr[f] {
+			arr[i], arr[f] = arr[f], arr[i]
+			i = f
+		} else {
+			break
+		}
+	}
+}
+
